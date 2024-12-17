@@ -7,6 +7,12 @@ A demo in how to track users to see which channels they added/unblocked the LINE
 * Create a Firebase project using the [Firebase Console](https://console.firebase.google.com) and select <b>Blaze plan</b>
 * Learn how to get started with Cloud Functions for Firebase by having a look at our [Getting Started Guide](https://firebase.google.com/docs/functions/get-started?gen=2nd)
 
+## Setup
+Open [/public/index.html](https://github.com/jirawatee/Friend-Path-of-LINE-OA/blob/main/public/index.html) and replace these values below
+* `### FIREBASE API KEY ###`, `### FIREBASE AUTH DOMAIN ###`, `### CLOUD FUNCTIONS PROJECT ID ###` from your Firebase configuration
+* `### BASIC ID ###` from your Messaging API Channel
+* `### LIFF ID ###'` from your LINE Login Channel
+
 ## Features
 * Survive LIFF app opening in the in-app browser
 * Check the friendship between LINE OA and user
