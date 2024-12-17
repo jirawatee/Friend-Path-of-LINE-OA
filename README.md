@@ -6,3 +6,22 @@ A demo in how to track users to see which channels they added/unblocked the LINE
 * [Learn and create a LIFF app](https://developers.line.biz/en/docs/liff/overview/) on the LINE Developers console
 * Create a Firebase project using the [Firebase Console](https://console.firebase.google.com) and select <b>Blaze plan</b>
 * Learn how to get started with Cloud Functions for Firebase by having a look at our [Getting Started Guide](https://firebase.google.com/docs/functions/get-started?gen=2nd)
+
+## Features
+* Survive LIFF app opening in the in-app browser
+* Check the friendship between LINE OA and user
+* Support LIFF app in the external browser
+* Get LINE user profile
+* Confirm LINE OA followers who added/unblocked the LINE OA from the ad
+* Count LINE OA followers who added/unblocked the LINE OA from the ad
+
+## Blog
+* [รู้หมดใครเพิ่มเพื่อน LINE OA จากช่องทางไหน ด้วยระบบที่คุณสร้างขึ้นมาเองได้](https://medium.com/linedevth/213dd994b9a3)
+
+## Screenshots
+<table width="100%">
+	<tr>
+	  <th><img src="https://user-images.githubusercontent.com/1763410/42454264-3f36aee6-83b9-11e8-918d-6559fb6be89f.gif" width="100%"></th>
+	  <th><img src="https://user-images.githubusercontent.com/1763410/42454265-3f7261ca-83b9-11e8-86ec-65cdaac1e2d6.gif" width="100%"></th>
+	</tr>
+</table>
