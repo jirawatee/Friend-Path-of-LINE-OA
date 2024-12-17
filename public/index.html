@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Friend Path</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <img src="https://cdn.pixabay.com/animation/2023/05/02/04/29/04-29-03-511_512.gif" width="16%">
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="main.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getFunctions, httpsCallable, connectFunctionsEmulator } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-functions.js";
+
+    const app = initializeApp({
+      apiKey: "### FIREBASE API KEY ###",
+      authDomain: "### FIREBASE AUTH DOMAIN ###",
+      projectId: "### CLOUD FUNCTIONS PROJECT ID ###"
+    });
+    const functions = getFunctions(app);
+
+    if (location.hostname === "localhost") {
+      connectFunctionsEmulator(functions, "localhost", 5001);
+    }
+
+    async function main() {
+      const LINE_OA_URL = "https://line.me/R/ti/p/### BASIC ID ###";
+      const params = new URLSearchParams(window.location.search);
+
+      await liff.init({ liffId: "### LIFF ID ###'" });
+
+      if (!liff.isInClient()) {
+        if (isMobile()) {
+          window.location = `line://app/${liff.id}?${params}`;
+          setTimeout(() => { liff.closeWindow(); }, "3000");
+          return;
+        }
+        if (!liff.isLoggedIn()) {
+          liff.login({ redirectUri: window.location.href });
+          return;
+        }
+      }
+
+      // No need to update the database if the user has been friend with the linked LINE OA
+      try {
+        const data = await liff.getFriendship();
+        if (data.friendFlag) {
+          window.location = LINE_OA_URL;
+          setTimeout(() => { liff.closeWindow(); }, "3000");
+          return;
+        }
+      } catch (error) {
+        alert(error.message);
+        liff.closeWindow();
+        return;
+      }
+
+      const myCallable = httpsCallable(functions, 'myCallable');
+      const result = await myCallable({
+        accessToken: liff.getAccessToken(),
+        utmSource: params.get("utm_source") || "none"
+      });
+
+      window.location = LINE_OA_URL;
+      setTimeout(() => { liff.closeWindow(); }, "3000");
+    }
+    main();
+  </script>
+</body>
+
+</html>
