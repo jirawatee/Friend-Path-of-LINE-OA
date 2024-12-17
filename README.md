@@ -27,7 +27,9 @@ Open [/public/index.html](https://github.com/jirawatee/Friend-Path-of-LINE-OA/bl
 ## Screenshots
 <table width="100%">
 	<tr>
-	  <th><img src="https://github.com/user-attachments/assets/e037d1fb-3a99-4ae4-b1de-218c0276c03f" width="100%"></th>
-	  <th><img src="https://github.com/user-attachments/assets/91e7f8fa-442b-47c0-ac44-b42452931a0b" width="100%"></th>
+	  <td><img src="https://github.com/user-attachments/assets/e037d1fb-3a99-4ae4-b1de-218c0276c03f" width="100%"></td>
+	</tr>
+	<tr>
+	  <td><img src="https://github.com/user-attachments/assets/91e7f8fa-442b-47c0-ac44-b42452931a0b" width="100%"></td>
 	</tr>
 </table>
